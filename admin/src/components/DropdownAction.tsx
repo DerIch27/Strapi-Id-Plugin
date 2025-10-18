@@ -10,7 +10,7 @@ export const TestAction = ({ model, documentId }: { model: string; documentId?: 
     disabled: false,
     icon: <LinkIcon />,
     label: formatMessage('copy-id-list-view'),
-    position: ['table-row', 'panel'],
+    position: ['table-row', 'header'],
     onClick: () => {
       copy(documentId);
       return null;
