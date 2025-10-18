@@ -1,1 +1,5 @@
-{}
+{
+    "copy-id-list-view": "Copy ID",
+    "copy-id-list-view-notification-1": "Copied ",
+    "copy-id-list-view-notification-2": " to clipboard."
+}

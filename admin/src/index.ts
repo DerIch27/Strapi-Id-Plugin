@@ -1,24 +1,9 @@
-import { getTranslation } from './utils/getTranslation';
+import { TestAction } from './components/DropdownAction';
 import { PLUGIN_ID } from './pluginId';
 import { Initializer } from './components/Initializer';
-import { PluginIcon } from './components/PluginIcon';
 
 export default {
   register(app: any) {
-    app.addMenuLink({
-      to: `plugins/${PLUGIN_ID}`,
-      icon: PluginIcon,
-      intlLabel: {
-        id: `${PLUGIN_ID}.plugin.name`,
-        defaultMessage: PLUGIN_ID,
-      },
-      Component: async () => {
-        const { App } = await import('./pages/App');
-
-        return App;
-      },
-    });
-
     app.registerPlugin({
       id: PLUGIN_ID,
       initializer: Initializer,
@@ -27,13 +12,25 @@ export default {
     });
   },
 
+  async bootstrap(app: any) {
+    app
+      .getPlugin('content-manager')
+      .apis.addDocumentAction((actions: any[]) => [
+        ...actions.filter((a) => a.name !== 'DeleteAction'),
+        TestAction,
+        ...actions.filter((a) => a.name === 'DeleteAction'),
+      ]);
+  },
+
   async registerTrads({ locales }: { locales: string[] }) {
     return Promise.all(
       locales.map(async (locale) => {
         try {
           const { default: data } = await import(`./translations/${locale}.json`);
-
-          return { data, locale };
+          const prefixedData = Object.fromEntries(
+            Object.entries(data).map(([key, value]) => [`${PLUGIN_ID}.${key}`, value])
+          );
+          return { data: prefixedData, locale };
         } catch {
           return { data: {}, locale };
         }
