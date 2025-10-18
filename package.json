@@ -50,11 +50,11 @@
   },
   "strapi": {
     "kind": "plugin",
-    "name": "strapi-show-documentid",
+    "name": "strapi-copy-documentid",
     "displayName": "ID copy",
     "description": "The plugin allows to copy documentIds to the clipboard as document actions."
   },
-  "name": "strapi-show-documentid",
+  "name": "strapi-copy-documentid",
   "description": "The plugin allows to copy documentIds to the clipboard as document actions.",
   "license": "MIT",
   "repository": {

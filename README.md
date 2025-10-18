@@ -1,4 +1,4 @@
-# strapi-show-documentid
+# strapi-copy-documentid
 
 This plugin adds buttons to copy the strapi v5 documentId to the clipboard.
 
