@@ -51,11 +51,11 @@
   "strapi": {
     "kind": "plugin",
     "name": "strapi-show-documentid",
-    "displayName": "ID Display",
-    "description": "The plugin displays documentIds"
+    "displayName": "ID copy",
+    "description": "The plugin allows to copy documentIds to the clipboard as document actions."
   },
   "name": "strapi-show-documentid",
-  "description": "The plugin displays documentIds",
+  "description": "The plugin allows to copy documentIds to the clipboard as document actions.",
   "license": "MIT",
   "repository": {
     "type": "git",
